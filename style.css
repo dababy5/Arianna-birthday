@@ -88,7 +88,7 @@ body {
   gap: 10px;
 }
 
-#nextBtn {
+#nextBtn,#backBtn {
   padding: 10px 20px;
   background-color: #000;
   color: #fff;
