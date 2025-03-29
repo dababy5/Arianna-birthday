@@ -45,10 +45,11 @@ body {
 }
 
 /* Letter text box */
-#letterBox {
+.letter-box {
   margin-bottom: 20px;
   animation: fadeIn 0.5s ease forwards;
 }
+
 
 .letter-text {
   background-color: #fff;
@@ -73,7 +74,7 @@ body {
 
 /* Hide & animation helpers */
 .hidden {
-  display: none;
+  display:none !important;
 }
 
 @keyframes fadeIn {
@@ -88,7 +89,8 @@ body {
   gap: 10px;
 }
 
-#nextBtn,#backBtn {
+#nextBtn,
+#backBtn {
   padding: 10px 20px;
   background-color: #000;
   color: #fff;
