@@ -30,4 +30,4 @@ function goBack() {
   envelopeImg.classList.remove("open");
   envelopeImg.classList.add("bounce");
   envelope.onclick = openLetter;
-}
+};
