@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Letter text (hidden until clicked) -->
+    <div id="letterBox" class="hidden">
+      <div class="letter-text">
+        <p>Hey,</p>
+        <p>This letter means more than words could say. Just know I’m thinking of you always.</p>
+        <p>– A</p>
+      </div>
+    </div>
+
+    <!-- Back button (hidden until clicked) -->
+    <button id="backBtn" class="hidden" onclick="goBack()">Back</button>
+
+    <!-- Envelope image -->
+    <div id="envelope" onclick="openLetter()">
+      <img src="pleaeseeework.png" alt="Closed Envelope" id="envelopeImg" class="bounce">
+      <p class="click-text">Click to open the letter</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
