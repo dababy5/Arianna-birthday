@@ -17,17 +17,28 @@ function openLetter() {
 
   envelope.onclick = null; // prevent repeat clicking
 }
+function showNext() {
+  document.getElementById("letterBox2").classList.remove("hidden");
+  document.getElementById("nextBtn").classList.add("hidden"); // hide Next button after clicking
+}
 
 function goBack() {
   const envelopeImg = document.getElementById("envelopeImg");
   const envelope = document.getElementById("envelope");
 
-  // Reset everything
+  // Hide both message boxes
   document.getElementById("letterBox").classList.add("hidden");
-  document.getElementById("backBtn").classList.add("hidden");
+  document.getElementById("letterBox2").classList.add("hidden");
+
+  // Hide button row and reset next button
+  document.getElementById("buttonRow").classList.add("hidden");
+  document.getElementById("nextBtn").classList.remove("hidden");
+
+  // Show "Click to open" text again
   document.querySelector(".click-text").style.display = "block";
 
+  // Reset envelope animation and click handler
   envelopeImg.classList.remove("open");
   envelopeImg.classList.add("bounce");
   envelope.onclick = openLetter;
-};
+}
