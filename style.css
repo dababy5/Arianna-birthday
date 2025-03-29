@@ -48,6 +48,10 @@ body {
 .letter-box {
   margin-bottom: 20px;
   animation: fadeIn 0.5s ease forwards;
+  display:flex;
+  justify-content: center;
+  width: 100%;
+
 }
 
 
