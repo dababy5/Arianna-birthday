@@ -63,17 +63,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Back button */
-#backBtn {
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-}
 
 /* Click text */
 .click-text {
@@ -90,4 +79,21 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  width: 350px; /* same as letter box max-width */
+  margin-top: 10px;
+  gap: 10px;
+}
+
+#nextBtn {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
 }
