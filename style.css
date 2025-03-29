@@ -2,11 +2,14 @@ body {
   margin: 0;
   background-color: white;
   font-family: 'Segoe UI', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;  /* ← move content to top */
+  padding-top: 80px;        /* ← space from top */
+  box-sizing: border-box;
 }
+
 
 .container {
   text-align: center;
@@ -109,13 +112,18 @@ body {
   transform-style: preserve-3d;
 }
 #envelopeWrapper {
-  height: 200px;  /* Match your envelope image size */
+  height: auto;  /* Match your envelope image size */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   position: relative;
   margin-bottom: 30px; /* Create space below */
+}
+#envelope {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
