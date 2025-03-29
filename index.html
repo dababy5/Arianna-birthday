@@ -31,8 +31,11 @@
     </div>
 
     <!-- Back button (hidden until clicked) -->
-    <button id="backBtn" class="hidden" onclick="goBack()">Back</button>
-    
+    <!-- Buttons -->
+<div class="button-row hidden" id="buttonRow">
+  <button id="backBtn" onclick="goBack()">Back</button>
+  <button id="nextBtn" onclick="showNext()">Next</button>
+</div>
 
     <!-- Envelope image -->
     <div id="envelope" onclick="openLetter()">
