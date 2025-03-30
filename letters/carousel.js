@@ -4,8 +4,9 @@ const nextBtn = document.getElementById("nextBtn");
 const memoryTitle = document.getElementById("memoryTitle");
 
 const titles = [
-  "Title 1",
-  "Title 2"
+  "Busche Gardens",
+  "Our First Date",
+  "Birthday Message",
 ];
 
 let currentIndex = 0;
