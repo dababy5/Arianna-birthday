@@ -4,7 +4,7 @@ window.onload = function () {
 };
 
 let currentStep = 0;
-const totalSteps = 5;
+const totalSteps = 6;
 
 function openLetter() {
   const envelopeImg = document.getElementById("envelopeImg");
@@ -45,21 +45,18 @@ document.getElementById("confettiSound").play();
 
 
 function showNext() {
-  // Hide current letter
   document.getElementById(`letterBox${currentStep}`).classList.add("hidden");
-
   currentStep++;
 
-  // Show next letter with animation
   const nextBox = document.getElementById(`letterBox${currentStep}`);
   if (nextBox) {
     nextBox.classList.remove("hidden");
     nextBox.classList.add("fade-in");
   }
 
-  // Hide "Next" if it's the last step
   if (currentStep === totalSteps) {
-    document.getElementById("nextBtn").classList.add("hidden");
+    document.getElementById("buttonRow").classList.add("hidden");   // hide old buttons
+    document.getElementById("startRow").classList.remove("hidden"); // show final row
   }
 }
 
@@ -71,30 +68,40 @@ function goBack() {
     // Hide current letter
     document.getElementById(`letterBox${currentStep}`).classList.add("hidden");
 
-    // Show previous letter with fade
+    // Decrease step
     currentStep--;
+
+    // Show previous letter with animation
     const prevBox = document.getElementById(`letterBox${currentStep}`);
     prevBox.classList.remove("hidden");
     prevBox.classList.add("fade-in");
 
-    // Ensure next button is visible (unless already on last letter)
+    // Button logic
+    if (currentStep === totalSteps - 1) {
+      // Just came back from last letter
+      document.getElementById("startRow").classList.add("hidden");
+      document.getElementById("buttonRow").classList.remove("hidden");
+    }
+
+    // Always show Next if not on final letter
     document.getElementById("nextBtn").classList.remove("hidden");
 
   } else if (currentStep === 1) {
-    // Back to envelope state
+    // Hide first letter
     document.getElementById("letterBox1").classList.add("hidden");
-    document.getElementById("buttonRow").classList.add("hidden");
-    document.getElementById("nextBtn").classList.remove("hidden");
-    document.querySelector(".click-text").style.display = "block";
 
-    // Reset envelope image and opacity
+    // Hide both button rows
+    document.getElementById("buttonRow").classList.add("hidden");
+    document.getElementById("startRow").classList.add("hidden");
+
+    // Reset envelope
+    document.querySelector(".click-text").style.display = "block";
     envelopeImg.src = "pleaeseeework.png";
     envelopeImg.alt = "Closed Envelope";
-    envelopeImg.style.opacity = "1"; // 💡 reset faded envelope
+    envelopeImg.style.opacity = "1";
 
-    // Restart bounce animation
     envelopeImg.classList.remove("open", "bounce");
-    void envelopeImg.offsetWidth; // 🔁 restart trick
+    void envelopeImg.offsetWidth;
     envelopeImg.classList.add("bounce");
 
     currentStep = 0;
