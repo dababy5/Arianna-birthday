@@ -23,20 +23,23 @@
 <audio id="confettiSound" src="confetti-pop-sound.mp3" preload="auto"></audio>
 <body>
   <div class="container">
-
+    <div class="content-wrapper">
     <!-- Letter text (hidden until clicked) -->
     <div id="letterBox1" class="letter-box hidden">
+      <div class="capybara-wrapper">
+        <img src="capybaracutetail.png" alt="Tail" class="capybara-tail">
+        <img src="cutecapy.png" alt="Capybara peeking" class="capybara-img">
+        <div class="capy-eye left-eye"></div>
+        <div class="capy-eye right-eye"></div>
+      </div>
+    
       <div class="letter-text">
-        <div class="capybara-wrapper">
-          <img src="capybaracutetail.png" alt="Tail" class="capybara-tail">
-          <img src="cutecapy.png" alt="Capybara peeking" class="capybara-img">
-          <div class="capy-eye left-eye"></div>
-          <div class="capy-eye right-eye"></div>
-        </div>
         <p>Happy Birthday!!</p>
         <p>This letter is to tell you how much you mean to me </p>
         <p>– Jay The Capybara</p>
       </div>
+    </div>
+    
     </div>
     <div id="letterBox2" class="letter-box hidden">
       <div class="letter-text">
@@ -91,7 +94,7 @@
     </div>
 
   </div>
-
+</div>
   <script src="script.js"></script>
 </body>
 </html>
