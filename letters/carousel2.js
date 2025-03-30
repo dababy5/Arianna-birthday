@@ -5,7 +5,7 @@ const memoryTitle = document.getElementById("memoryTitle");
 
 const titles = [
   "Happy Birthday ",
-  "Our First Date",
+  "Our Hangouts",
   "Busche Gardens",
 ];
 
