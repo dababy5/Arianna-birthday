@@ -9,7 +9,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
   overflow-x: hidden;
-  font-size:16px;
+  font-size:30px;
 }
 
 .memories-title {
@@ -28,14 +28,14 @@ body {
 
 .memory-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2.0rem;
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
 .carousel-content {
   width: 90vw;
-  font-size: 20px;
+  font-size: 25px;
   max-width: 600px;
   background-color: white;
   padding: 20px;
