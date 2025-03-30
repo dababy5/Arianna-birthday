@@ -159,14 +159,76 @@ body {
   font-size: 14px;
   text-decoration: none;
 }
+.capybara-wrapper {
+  position: relative;
+  width: 60px;
+  height: auto;
+  margin: 0 auto;
+}
+
 .capybara-img {
   width: 60px;
+  position: relative;
+  z-index: 1;
+  top:-58px;
+}
+
+.capybara-tail {
+  width: 27px;
   position: absolute;
-  top: -30px;
+  top: -50px;         /* adjust this to fit nicely above the head */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  transform-origin:bottom center;
+  z-index: 0;
+  animation: wagTail 2s infinite ease-in-out;
 }
+
+@keyframes wagTail {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  25%  { transform: translateX(-50%) rotate(8deg); }
+  50%  { transform: translateX(-50%) rotate(0deg); }
+  75%  { transform: translateX(-50%) rotate(-8deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+.capybara-wrapper {
+  position: relative;
+  width: 60px; /* match capybara image */
+  height: auto;
+  margin: 0 auto;
+}
+
+.capy-eye {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+  animation: blink 3s infinite;
+  z-index: 3;
+}
+
+/* Adjust these to match where the eyes are on your image */
+.left-eye {
+  top: 12px;
+  left: 14px;
+}
+
+.right-eye {
+  top: 12px;
+  right: 14px;
+}
+
+/* Blinking animation */
+@keyframes blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
 
 
 
