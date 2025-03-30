@@ -3,34 +3,57 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const memoryTitle = document.getElementById("memoryTitle");
 
-// Titles for each slide (make sure they match the number/order of your slides)
 const titles = [
   "Title 1",
   "Title 2"
-  // Add more titles if you add more slides
 ];
 
 let currentIndex = 0;
+let isTransitioning = false;
 
 function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
-  });
+  if (isTransitioning) return;
+  isTransitioning = true;
 
-  // Update the title above the memory text
-  memoryTitle.textContent = titles[index];
+  const currentSlide = slides[currentIndex];
+
+  // Fade out current text
+  currentSlide.classList.remove("active");
+  currentSlide.classList.add("fade-out");
+
+  // Fade out title
+  memoryTitle.style.opacity = 0;
+
+  setTimeout(() => {
+    currentSlide.classList.remove("fade-out");
+
+    // Show new slide
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+      if (i === index) slide.classList.add("active");
+    });
+
+    // Update and fade in title
+    memoryTitle.textContent = titles[index];
+    memoryTitle.style.opacity = 1;
+
+    currentIndex = index;
+    isTransitioning = false;
+  }, 400); // same as CSS fade-out duration
 }
 
+// Button Events
 prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(currentIndex);
+  const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(newIndex);
 });
 
 nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
+  const newIndex = (currentIndex + 1) % slides.length;
+  showSlide(newIndex);
 });
 
-// Show the first slide on load
+// Initial load
 showSlide(currentIndex);
+
 

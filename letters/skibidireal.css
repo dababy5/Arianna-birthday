@@ -5,9 +5,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px; /* ⬆️ Higher spacing */
+  padding-top: 30px;
   min-height: 100vh;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .memories-title {
@@ -27,29 +28,62 @@ body {
 .memory-title {
   margin: 0;
   font-size: 1.4rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .carousel-content {
-  width: 90vw;               /* 🔁 Responsive on all screens */
-  max-width: 600px;          /* 🖥️ Max width on large screens */
+  width: 90vw;
+  max-width: 600px;
   background-color: white;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  overflow: hidden;
   text-align: center;
+  overflow: hidden;
   margin-bottom: 30px;
   box-sizing: border-box;
+  position: relative;
+  min-height: 150px;
+  max-height: calc(100vh - 200px); /* adjust based on title & buttons height */
+  overflow-y: auto; /* scroll if content overflows */
+  min-height: 200px;
 }
+
 
 .memory-slide {
   display: none;
+  opacity: 0;
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.4s ease;
+  padding-bottom: 20px; /* nice breathing room at the bottom */
 }
 
 .memory-slide.active {
   display: block;
+  opacity: 1;
+  animation: fadeInSoft 1s ease forwards;
 }
 
+
+.memory-slide.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Optional Typewriter effect */
+@keyframes typewriter {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Arrows */
 .arrow {
   background-color: beige;
   color: black;
@@ -60,6 +94,7 @@ body {
   cursor: pointer;
 }
 
+/* Small screen tweaks */
 @media screen and (max-width: 400px) {
   .memories-title {
     font-size: 1.6rem;
@@ -79,5 +114,72 @@ body {
     padding: 8px 12px;
   }
 }
+.capybara-wrapper {
+  position: relative;
+  width: 60px;
+  margin-top: -30px;     /* Pulls it into the memory box */
+  margin-bottom: -20px;
+  z-index: 2;
+}
 
+.capybara-img {
+  width: 60px;
+  position: relative;
+  z-index: 3;
+  top:14px;
+  right:-10px;
+}
 
+.capybara-tail {
+  width: 27px;
+  position: absolute;
+  top: 8px;
+  left: 40px;
+  transform: translateX(-50%);
+  transform-origin: bottom center;
+  z-index: 1;
+  animation: wagTail 2s infinite ease-in-out;
+}
+
+@keyframes wagTail {
+  0%   { transform: translateX(-50%) rotate(0deg); }
+  25%  { transform: translateX(-50%) rotate(10deg); }
+  50%  { transform: translateX(-50%) rotate(0deg); }
+  75%  { transform: translateX(-50%) rotate(-10deg); }
+  100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+.capy-eye {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+  animation: blink 3s infinite;
+  z-index: 4;
+}
+
+.left-eye {
+  top: -32px;
+  left: 27px;
+}
+
+.right-eye {
+  top: -38px;
+  right: -47px;
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
