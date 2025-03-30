@@ -4,7 +4,7 @@ window.onload = function () {
 };
 
 let currentStep = 0;
-const totalSteps = 2;
+const totalSteps = 5;
 
 function openLetter() {
   const envelopeImg = document.getElementById("envelopeImg");
@@ -23,6 +23,20 @@ function openLetter() {
   // Show buttons and hide helper text
   document.getElementById("buttonRow").classList.remove("hidden");
   document.querySelector(".click-text").style.display = "none";
+// 🎉 Confetti (your version)
+function randomInRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+confetti({
+  angle: randomInRange(55, 125),
+  spread: randomInRange(50, 70),
+  particleCount: randomInRange(50, 100),
+  origin: { y: 0.6 }
+});
+
+// 🔊 Play sound
+document.getElementById("confettiSound").play();
 
   // Disable further clicking
   envelope.onclick = null;
