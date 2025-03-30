@@ -37,9 +37,8 @@ confetti({
 
 // 🔊 Play sound
 document.getElementById("confettiSound").play();
-
   // Disable further clicking
-  envelope.onclick = null;
+  envelope.onclick =null;
   currentStep = 1;
 }
 
@@ -96,7 +95,7 @@ function goBack() {
 
     // Reset envelope
     document.querySelector(".click-text").style.display = "block";
-    envelopeImg.src = "pleaeseeework.png";
+    envelopeImg.src = "favicon.png";
     envelopeImg.alt = "Closed Envelope";
     envelopeImg.style.opacity = "1";
 
