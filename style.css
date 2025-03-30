@@ -57,6 +57,7 @@ body {
 
 /* Letter content */
 .letter-text {
+  position:relative;
   background-color: #fff;
   color: #000;
   padding: 15px 20px;
@@ -157,6 +158,14 @@ body {
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
+}
+.capybara-img {
+  width: 60px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 
